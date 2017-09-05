@@ -10,23 +10,17 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "TrendTracker.db";
 
     private static final String SQL_CREATE_TREND_TABLE =
-            "CREATE TABLE " + DbContract.Trend.TABLE_NAME + " (" +
-                    DbContract.Trend._ID + " INTEGER PRIMARY KEY," +
-                    DbContract.Trend.COLUMN_NAME_NAME + " TEXT)";
-
-    private static final String SQL_DELETE_TREND_TABLE =
-            "DROP TABLE IF EXISTS " + DbContract.Trend.TABLE_NAME;
+            "CREATE TABLE " + DbContract.TrendContract.TABLE_NAME + " (" +
+                    DbContract.TrendContract._ID + " INTEGER PRIMARY KEY," +
+                    DbContract.TrendContract.COLUMN_NAME_NAME + " TEXT)";
 
     private static final String SQL_CREATE_ENTRY_TABLE =
-            "CREATE TABLE " + DbContract.Entry.TABLE_NAME + " (" +
-                    DbContract.Entry._ID + " INTEGER PRIMARY KEY," +
-                    DbContract.Entry.COLUMN_NAME_TREND_ID + " INTEGER," +
-                    DbContract.Entry.COLUMN_NAME_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP," +
-                    DbContract.Entry.COLUMN_NAME_MATCH + " INTEGER," +
-                    DbContract.Entry.COLUMN_NAME_COMMENT + " TEXT)";
-
-    private static final String SQL_DELETE_ENTRY_TABLE =
-            "DROP TABLE IF EXISTS " + DbContract.Entry.TABLE_NAME;
+            "CREATE TABLE " + DbContract.EntryContract.TABLE_NAME + " (" +
+                    DbContract.EntryContract._ID + " INTEGER PRIMARY KEY," +
+                    DbContract.EntryContract.COLUMN_NAME_TREND_ID + " INTEGER," +
+                    DbContract.EntryContract.COLUMN_NAME_CREATED_AT + " DATETIME DEFAULT CURRENT_TIMESTAMP," +
+                    DbContract.EntryContract.COLUMN_NAME_MATCH + " INTEGER," +
+                    DbContract.EntryContract.COLUMN_NAME_COMMENT + " TEXT)";
 
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
